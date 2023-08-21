@@ -7,13 +7,13 @@
 </head>
 <body>
   <h2>ユーザ登録</h2>
-  <form th:action="@{/exam04/register}" method="post">
+  <form th:action="@{/exam04/register}" method="post" th:object="${userForm}">
     名前：
-    <input type="text" name="name"><br>
+    <input type="text" name="name" th:field="*{name}"><br>
     年齢：
-    <input type="text" name="age"><br>
+    <input type="text" name="age" th:field="*{age}"><br>
     コメント：<br>  
-    <textarea name="comment" cols="40" rows="10"></textarea><br>
+    <textarea name="comment" cols="40" rows="10" th:field="*{comment}"></textarea><br>
     <button>登録</button>
   </form>
 </body>
