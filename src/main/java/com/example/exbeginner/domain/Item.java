@@ -16,4 +16,9 @@ public class Item {
   public void setPrice(Integer price) {
     this.price = price;
   }
+  
+  public Item(String name, Integer price) {
+    this.name = name;
+    this.price = price;
+  }
 }
