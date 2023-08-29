@@ -1,6 +1,5 @@
 package com.example.exbeginner.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,17 +25,12 @@ public class MemberRepository {
     return member;
   };
 
-  public List<String> search(String name) {
+  public List<Member> search(String name) {
     String sql = "select id, name, age, dep_id from members where name like :name;";
     SqlParameterSource param = new MapSqlParameterSource().addValue("name", '%' + name + '%');
 
     List<Member> memberList = template.query(sql, param, MEMBER_ROW_MAPPER);
-    
-    List<String> nameList = new ArrayList<>();
-    for(Member member : memberList) {
-      nameList.add(member.getName());
-    }
 
-    return nameList;
+    return memberList;
   }
 }

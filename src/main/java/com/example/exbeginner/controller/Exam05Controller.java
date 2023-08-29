@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.exbeginner.domain.Member;
 import com.example.exbeginner.repository.MemberRepository;
 
 @Controller
@@ -24,8 +25,8 @@ public class Exam05Controller {
 
   @PostMapping("/result")
   public String result(String name, Model model) {
-    List<String> nameList = repository.search(name);
-    model.addAttribute("nameList", nameList);
+    List<Member> memberList = repository.search(name);
+    model.addAttribute("memberList", memberList);
     return "exam05-result";
   }
 }
